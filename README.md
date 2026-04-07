@@ -1,17 +1,8 @@
 Task 1: [COMPLETE]
 Task 2: [COMPLETE]
-Task 3: [ONGOING]
-
-Each worker
-pays an income tax of 15% (of their salary) to the UK government.
-Determine the tax amount in British pounds, and the worker’s net income
-(salary after tax) in British pounds. After the gross income for ALL ten (10)
-workers has been calculated, display the total gross income that Super
-Cruise Tours and Resort will have to pay out for the month as labour cost.
-Task 4:
-All the data of the ten workers should be stored in a comma separated value
-(csv) file
-Task 5:
+Task 3: [COMPLETE]
+Task 4: [COMPLETE]
+Task 5: [ONGOING]
 Print the following payroll statement for each worker:
 Super Cruise Tours and Resort
  **********MONTHLY INCOME STATEMENT**********
