@@ -1,19 +1,8 @@
-Task 1:
-Write a python program to accept the current exchange rate to convert USD
-to British pounds at the start of program. Then allow for the entry of ten (10)
-workers’ data to be stored in a 2D array. You should collect and store their
-full names, job position, and the number of hours worked for the month.
-The hourly rate for workers is dependent on their job position. A minimum
-of 100 hours must be worked for the month by each worker.
-Task 2:
-The job positions are:
-Front Desk - $14.00 USD
-Kitchen - $16.00 USD
-House Keeping - $15.00 USD
-Maintenance - $20.00 USD
-Task 3:
-Calculate the salary of each worker. Each worker is paid in US currency.
-Convert the salary of each worker from USD to British pounds. Each worker
+Task 1: [COMPLETE]
+Task 2: [COMPLETE]
+Task 3: [ONGOING]
+
+Each worker
 pays an income tax of 15% (of their salary) to the UK government.
 Determine the tax amount in British pounds, and the worker’s net income
 (salary after tax) in British pounds. After the gross income for ALL ten (10)
