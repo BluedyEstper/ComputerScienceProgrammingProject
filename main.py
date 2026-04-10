@@ -129,3 +129,63 @@ def write_csv():
 write_csv()
 print("Payroll data has been written to payroll.csv")
 #V1.3 - added a print statement to confirm that the payroll data has been successfully written to the CSV file.
+
+def print_payroll_statement():
+    for worker in database:
+        name = worker[0]
+        job_position = worker[1]
+        gross_usd = worker[4]
+        gross_gbp = worker[5]
+        tax_gbp = worker[6]
+        net_gbp = worker[7]
+
+        print("\nSuper Cruise Tours and Resort")
+        print("**********MONTHLY PAYROLL STATEMENT**********")
+        print(f"NAME: {name}")
+        print(f"JOB POSITION: {job_position}")
+        print(f"GROSS INCOME (USD): ${gross_usd:.2f}")
+        print(f"GROSS INCOME (GBP): £{gross_gbp:.2f}")
+        print(f"TAX (GBP): £{tax_gbp:.2f}")
+        print(f"NET INCOME (GBP): £{net_gbp:.2f}")
+        print("\n------------------------------------------------\n")
+
+print_payroll_statement()
+#V1.4 - added a function to print a formatted payroll statement for each worker, including all relevant salary details in both USD and GBP.
+#V1.4 - fixed formatting issues in the payroll statement for better readability.
+#V1.4 - added a header and separator for better visual distinction between different workers' payroll statements.
+
+def print_total_labour_cost():
+    total_usd = total_labour_cost()
+    total_gbp = USD_to_GBP(total_usd)
+ 
+    print("\nSuper Cruise Tours and Resort")
+    print("**********TOTAL LABOUR COST**********")
+    print(f"THE TOTAL LABOUR COST IS £{total_gbp:.2f} GBP\n")
+
+print_total_labour_cost()
+#V1.4 - added a function to print the total labour cost in GBP, using the previously defined total_labour_cost function and the USD_to_GBP conversion function.
+
+def save_total_labour_cost():
+    total_usd = total_labour_cost()
+    total_gbp = USD_to_GBP(total_usd)
+
+    with open("total_labour_cost.txt", "w") as file:
+        file.write("Super Cruise Tours and Resort\n")
+        file.write("**********TOTAL LABOUR COST**********\n")
+        file.write(f"THE TOTAL LABOUR COST IS £{total_gbp:.2f} GBP\n")
+
+    print("Total labour cost has been saved to total_labour_cost.txt")
+
+save_total_labour_cost()
+#V1.4 - added a function to save the total labour cost in GBP to a text file, including a header for clarity.
+
+def read_total_labour_cost():
+    try:
+        with open("total_labour_cost.txt", "r") as file:
+            print("\nCONTENTS OF total_labour_cost.txt ---\n")
+            print(file.read())
+    except FileNotFoundError:
+        print("total_labour_cost.txt not found. Please ensure the file exists.")
+
+read_total_labour_cost()
+#V1.4 - added a function to read and print the contents of the total_labour_cost.txt file, with error handling for file not found.
