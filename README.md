@@ -2,25 +2,9 @@ Task 1: [COMPLETE]
 Task 2: [COMPLETE]
 Task 3: [COMPLETE]
 Task 4: [COMPLETE]
-Task 5: [ONGOING]
-Print the following payroll statement for each worker:
-Super Cruise Tours and Resort
- **********MONTHLY INCOME STATEMENT**********
-NAME: John Brown
-JOB POSITION: XXXXX
-GROSS INCOME (USD): $XXXX.00
-USD GROSS INCOME (GBP): £XXXX.00
-GBP TAX: £XXX.00 GBP
-NET INCOME: £XXXX.00 GBP
-Print the following labour cost statement to display the total gross income of all ten
-(10) workers that the company will have to pay:
-Super Cruise Tours and Resort
-**********TOTAL LABOUR COST **********
-THE TOTAL LABOUR COST IS £XXXXXXXX.XX
-Task 6:
-Store the print outs in part 5 to a text file with the option to read from the
-text file.
-Task 7:
+Task 5: [COMPLETE]
+Task 6: [COMPLETE]
+Task 7: [ONGOING]
 Design your program so it is modular and has a menu from which the user
 will choose to add data for each employee, view the current employee data
 from the array, view the data stored in the csv file and view the print out of
