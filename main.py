@@ -47,13 +47,7 @@ def worker_info():
 #V1.2 - added a while loop to ensure that the hours worked is at least 100, as per the requirement.
 #V1.2 - added a while loop to validate the job position input, ensuring it matches one of the predefined valid positions.
 
-for i in range(3):
-    print("\nEntering data for worker...")
-    worker_info()
-# range is simplified to 3 for testing purposes, change to 10 for actual use
-
-print(database)
-# debugging print statement to check the initial database structure after collecting worker information.
+#V1.5 - removed debugging print statements to clean up the output after testing the worker information input function.
 
 salary_rates = {
     "front desk": 14,
@@ -79,12 +73,17 @@ def calculate_salaries():
         worker.append(tax_gbp)
         worker.append(net_gbp)
         print(f"{name} earns ${gross_usd:.2f} USD, which is £{gross_gbp:.2f} GBP before tax. After a 15% tax deduction (£{tax_gbp:.2f}), the net salary is £{net_gbp:.2f} GBP.")
+
+    if len(database) == 0:
+        print("No worker data available to calculate salaries.")
+
+    if len(database[0]) > 3:
+        print("Salaries have already been calculated for the workers.")
 #V1.2 - added a function to calculate and print the salaries of each worker in both USD and GBP, using the previously defined exchange rate function.
 #V1.3 - added tax calculation and net salary calculation, as per the requirement.
+#V1.5 - added checks to prevent recalculating salaries if they have already been calculated, and to handle the case where no worker data is available.
 
-calculate_salaries()
-print(database)
-# debugging print statement to check the updated database structure after salary calculations.
+#V1.5 - removed debugging print statements to clean up the output after testing the salary calculation function.
 
 # current database structure at this moment:
 # [0] name
@@ -102,7 +101,6 @@ def total_labour_cost():
         gross_usd = worker[4]
         total += gross_usd
     return total
-print("The Total labour cost in USD Super Cruise Tours and Resort will have to pay out this month is: $", total_labour_cost())
 #V1.3 - added a function to calculate the total labour cost in USD by summing up the gross salaries of all workers.
 
 import csv
@@ -126,9 +124,7 @@ def write_csv():
 #V1.3 - added a function to write the payroll data to a CSV file, including headers for clarity.
 #V1.3 - fixed the CSV writing function to ensure it writes the correct data structure to the file.
 
-write_csv()
-print("Payroll data has been written to payroll.csv")
-#V1.3 - added a print statement to confirm that the payroll data has been successfully written to the CSV file.
+#V1.5 removed debugging print statements to clean up the output after testing the CSV writing function.
 
 def print_payroll_statement():
     for worker in database:
@@ -149,8 +145,7 @@ def print_payroll_statement():
         print(f"NET INCOME (GBP): £{net_gbp:.2f}")
         print("\n------------------------------------------------\n")
 
-print_payroll_statement()
-#V1.4 - added a function to print a formatted payroll statement for each worker, including all relevant salary details in both USD and GBP.
+#V1.5 - removed debugging print statements to clean up the output after testing the payroll statement printing function.
 #V1.4 - fixed formatting issues in the payroll statement for better readability.
 #V1.4 - added a header and separator for better visual distinction between different workers' payroll statements.
 
@@ -162,8 +157,7 @@ def print_total_labour_cost():
     print("**********TOTAL LABOUR COST**********")
     print(f"THE TOTAL LABOUR COST IS £{total_gbp:.2f} GBP\n")
 
-print_total_labour_cost()
-#V1.4 - added a function to print the total labour cost in GBP, using the previously defined total_labour_cost function and the USD_to_GBP conversion function.
+#V1.5 - removed debugging print statements to clean up the output after testing the total labour cost printing function.
 
 def save_total_labour_cost():
     total_usd = total_labour_cost()
@@ -176,7 +170,7 @@ def save_total_labour_cost():
 
     print("Total labour cost has been saved to total_labour_cost.txt")
 
-save_total_labour_cost()
+#V1.5 - removed debugging print statements to clean up the output after testing the total labour cost saving function.
 #V1.4 - added a function to save the total labour cost in GBP to a text file, including a header for clarity.
 
 def read_total_labour_cost():
@@ -187,5 +181,48 @@ def read_total_labour_cost():
     except FileNotFoundError:
         print("total_labour_cost.txt not found. Please ensure the file exists.")
 
-read_total_labour_cost()
-#V1.4 - added a function to read and print the contents of the total_labour_cost.txt file, with error handling for file not found.
+#V1.5 - removed debugging function to clean up the output after testing the total labour cost reading function.
+
+def menu():
+    while True:
+        print("\nSuper Cruise Tours and Resort Payroll System")
+        print("1. Enter worker information")
+        print("2. Calculate Salaries")
+        print("3. Print Payroll Statements")
+        print("4. Print total labour cost")
+        print("5. Save total labour cost to text file")
+        print("6. Read total labour cost from text file")
+        print("7. Export CSV file")
+        print("8. Exit")
+
+        choice = input("Enter your choice (1-8): ")
+
+        if choice == "1":
+            collect_workers()
+        elif choice == "2":
+            calculate_salaries()
+        elif choice == "3":
+            print_payroll_statement()
+        elif choice == "4":
+            print_total_labour_cost()
+        elif choice == "5":
+            save_total_labour_cost()
+        elif choice == "6":
+            read_total_labour_cost()
+        elif choice == "7":
+            write_csv()
+            print("Payroll data has been written to payroll.csv")
+        elif choice == "8":
+            print("Exiting the program. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please enter a number between 1 and 8.")
+#V1.5 - added a menu function to allow users to interact with the program through a simple command-line interface, providing options for all major functionalities.
+
+def collect_workers():
+    for i in range(10):
+        print(f"\nEntering data for worker {i+1}...")
+        worker_info()
+#V1.5 - added a function to collect information for 10 workers
+
+menu()
